@@ -1,6 +1,6 @@
 GET http://localhost:3000/api/guitars
 ###
-GET http://localhost:3000/api/guitars/123
+GET http://localhost:3000/api/guitars/3
 ###
 POST http://localhost:3000/api/guitars
 Content-Type: application/json
@@ -9,6 +9,6 @@ Content-Type: application/json
     "brand": "Ibanez",
     "model": "flying V",
     "color": "white",
-    "id": "3"
+    "id": 3
 }
 

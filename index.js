@@ -1,51 +1,33 @@
 const express = require("express");
-const json = require("express/lib/response");
-
 const guitarsRouter = require("./routers/guitars.router");
 
-const app = express();
 const Port = 3000;
 const colors = require("colors");
+const app = express();
 
-app.use("", express.static("public"));
+// Definera middlewares
 app.use(express.json());
 
-//hämtar router till guitars
-// app.use("/api/guitars", guitarsRouter);
-
-const guitars = [
-  {
-    brand: "gibson",
-    model: "sg",
-    color: "red",
-    id: 1,
-  },
-
-  {
-    brand: "fender",
-    model: "stratocaster",
-    color: "black",
-    id: 2,
-  },
-];
-
-app.get("/api/guitars", (req, res) => {
-  res.json(guitars);
+// Definera endpoints
+app.get("/", (req, res) => {
+  res.json({ message: "hello world" });
 });
 
-app.post("/api/guitars", (req, res) => {
-  console.log(req.body);
-  guitars.push(req.body);
-  res.status(201).send(`${req.body.brand}, ${req.body.model} added`);
-});
-
-//  Definera våra endpoints
+// Routers
+app.use("/api/guitars", guitarsRouter);
 
 // 404 middleware
 app.use((req, res) => {
   res.status(404).json("resource was not found!");
 });
 
+// Global error
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ error: err.message });
+});
+
+// Starta servern
 app.listen(Port, () => {
   console.log(`Server is running on http://localhost:${Port}`.bgMagenta);
 });
