@@ -1,6 +1,6 @@
 GET http://localhost:3000/api/guitars
 ###
-GET http://localhost:3000/api/guitars/3
+GET http://localhost:3000/api/guitars/96
 ###
 POST http://localhost:3000/api/guitars
 Content-Type: application/json
@@ -8,7 +8,21 @@ Content-Type: application/json
 {
     "brand": "Ibanez",
     "model": "flying V",
-    "color": "white",
-    "id": 3
+    "color": "white"
 }
+
+###
+PUT http://localhost:3000/api/guitars/63
+
+
+{
+    "brand": "Fender",
+    "model": "Stratocaster",
+    "color": "Red"
+}
+
+
+###
+DELETE http://localhost:3000/api/guitars/96
+
 
