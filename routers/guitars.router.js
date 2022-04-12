@@ -34,9 +34,24 @@ guitarsRouter.get("/:id", (req, res) => {
 guitarsRouter.put("/:id", (req, res) => {
   const { id } = req.params;
 
-  guitars.find((guitar) => guitar.id == id);
+  const guitar = guitars.find((guitar) => guitar.id == id);
 
-  res.send(`guitar with id "${req.params.id}" was updated`);
+  const { brand, model, color } = req.body;
+
+  if (brand) {
+    guitar.brand = brand;
+  }
+
+  if (model) {
+    guitar.model = model;
+  }
+
+  if (color) {
+    guitar.color = color;
+  }
+
+  res.send(`Guitar with id "${req.params.id}" was updated`);
+
   res.status(404).send(
     `Failed to update Guitar with ID ${req.params.id}
       try with another id`

@@ -6,19 +6,19 @@ POST http://localhost:3000/api/guitars
 Content-Type: application/json
 
 {
-    "brand": "Ibanez",
-    "model": "flying V",
-    "color": "white"
+    "brand": "Gibson",
+    "model": "SG",
+    "color": "Cherry"
 }
 
 ###
-PUT http://localhost:3000/api/guitars/63
-
+PUT http://localhost:3000/api/guitars/98
+Content-Type: application/json
 
 {
     "brand": "Fender",
     "model": "Stratocaster",
-    "color": "Red"
+    "color": "Maple"
 }
 
 
