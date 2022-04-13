@@ -5,10 +5,10 @@ const Port = 3000;
 const colors = require("colors");
 const app = express();
 
-// Definera middlewares
+// Defined middlewares
 app.use(express.json());
 
-// Definera endpoints
+// Defined endpoints
 app.get("/", (req, res) => {
   res.json({ message: "hello world" });
 });
@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message });
 });
 
-// Starta servern
+// Start server
 app.listen(Port, () => {
   console.log(`Server is running on http://localhost:${Port}`.bgMagenta);
 });

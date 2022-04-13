@@ -13,8 +13,4 @@ You can download the project and run the following scripts in the terminal to tr
 
     npm start
 
-
-
 [Link to repo](https://github.com/lovelanai/rest-API-Lab-1)
-
-
