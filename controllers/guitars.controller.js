@@ -23,7 +23,7 @@ let guitars = [
 
 const getGuitars = (req, res) => {
   if (guitars.length == 0) {
-    res.status(404).send(`The Guitarlist is emty... 
+    res.status(404).send(`The Guitarlist is empty... 
     
 Try adding some Guitars :)`);
   } else {
@@ -91,9 +91,8 @@ const deleteGuitar = (req, res) => {
     res.status(404).send("Failed to delete guitar with given id");
   } else {
     const guitarIndex = guitars.indexOf(foundGuitar);
-    guitars.splice(guitarIndex, 1);
-
     res.send("Guitar was deleted");
+    guitars.splice(guitarIndex, 1);
   }
 };
 exports.deleteGuitar = deleteGuitar;
